@@ -4,8 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Github, Mail, Terminal, Telescope, X } from 'lucide-react'
+import { Github, Mail, Telescope, X } from 'lucide-react'
 import Typewriter from 'typewriter-effect/dist/core'
+import BreadcrumbNav from './components/BreadcrumbNav'
 import bannerImage from '../public/banner.png'
 import lovac from '../public/lovac.png'
 import superstudy from '../public/superstudy.png'
@@ -21,7 +22,7 @@ type ToastItem = {
 const projects = [
   {
     title: "Lovac",
-    description: "A ticket based support system with cross compatability.",
+    description: "A ticket-based support system with cross compatibility.",
     image: lovac,
     tags: ["React", "Typescript", "Docker"],
     sourceUrl: "https://github.com/clarkpy/lovac-backend",
@@ -37,7 +38,7 @@ const projects = [
   },
   {
     title: "Artifacts",
-    description: "A advanced and reliable Jitpack alternative",
+    description: "An advanced and reliable Jitpack alternative",
     image: artifacts,
     tags: ["React", "NextJS", "TypeScript"],
     sourceUrl: "https://github.com/clarkpy/ByteStore-Frontend",
@@ -200,10 +201,7 @@ export default function Home() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <nav className="flex justify-between items-center mb-16">
-          <Link className="flex items-center space-x-2 text-[#DCB8B0] hover:text-[#D2D2D4] transition-colors" href="#">
-            <Terminal className="h-5 w-5" />
-            <span className="font-mono">home</span>
-          </Link>
+          <BreadcrumbNav />
         </nav>
 
         <div className="mb-16 rounded-lg overflow-hidden">

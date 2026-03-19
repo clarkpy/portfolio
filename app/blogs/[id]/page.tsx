@@ -3,8 +3,8 @@
 import { useParams } from 'next/navigation'; 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft } from 'lucide-react';
 import { blogs } from '../../data/blogs';
+import BreadcrumbNav from '../../components/BreadcrumbNav';
 
 export default function BlogDetailPage() {
   const { id } = useParams();
@@ -30,10 +30,7 @@ export default function BlogDetailPage() {
     <div className="min-h-screen bg-[#13111C] text-[#D2D2D4] relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <nav className="flex justify-between items-center mb-8">
-          <Link className="flex items-center space-x-2 text-[#DCB8B0] hover:text-[#D2D2D4] transition-colors" href="/blogs">
-            <ArrowLeft className="h-5 w-5" />
-            <span className="font-mono">back to blogs</span>
-          </Link>
+          <BreadcrumbNav />
         </nav>
 
         <header className="space-y-4 mb-12 text-center">

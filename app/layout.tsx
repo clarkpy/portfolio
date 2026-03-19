@@ -22,8 +22,24 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "AJ",
-  description: "welcome to my site.",
+  metadataBase: new URL('https://snowyjs.lol'),
+  title: {
+    default: 'AJ',
+    template: '%s | AJ'
+  },
+  description: 'my personal portfolio.',
+  openGraph: {
+    title: 'AJ',
+      description: 'Personal portfolio for AJ, featuring projects, GitHub activity, and work experience.',
+    url: 'https://snowyjs.lol',
+    siteName: 'AJ Portfolio',
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AJ',
+    description: 'my personal portfolio.'
+  }
 };
 
 export default function RootLayout({

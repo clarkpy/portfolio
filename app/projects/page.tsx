@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Github, Telescope, ArrowLeft } from 'lucide-react'
+import { Github, Telescope } from 'lucide-react'
+import BreadcrumbNav from '../components/BreadcrumbNav'
 import bannerImage from '../../public/banner.png'
 import artifacts from '../../public/artifacts.png'
 import portfolio from '../../public/portfolio.png'
@@ -14,7 +14,7 @@ import lovac from '../../public/lovac.png'
 const projects = [
   {
     title: "Lovac",
-    description: "A ticket based support system integrated with Discord OAuth and cross compatability.",
+    description: "A ticket-based support system integrated with Discord OAuth and cross compatibility.",
     image: lovac,
     tags: ["React", "Typescript", "Docker"],
     sourceUrl: "https://github.com/clarkpy/lovac-backend",
@@ -43,11 +43,7 @@ export default function ProjectsPage() {
     <div className="min-h-screen bg-[#13111C] text-[#D2D2D4] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <nav className="flex justify-between items-center mb-16">
-          <Link className="flex items-center space-x-2 text-[#DCB8B0] hover:text-[#D2D2D4] transition-colors" href="/">
-            <ArrowLeft className="h-5 w-5" />
-            <span className="font-mono">back to home</span
->
-          </Link>
+          <BreadcrumbNav />
         </nav>
 
         <div className="mb-16 rounded-lg overflow-hidden">
@@ -145,7 +141,7 @@ export default function ProjectsPage() {
         <header className="space-y-4 max-w-3xl mx-auto text-center mt-16">
           <h1 className="text-4xl font-bold font-mono text-[#DCB8B0]"></h1>
             <p className="text-[#D2D2D4] leading-relaxed">
-            not much for now. open source projects were made for high seas
+            Not much for now. Open source projects were made for High Seas.
             <span className="mx-0.5"></span>
             <Link 
               href="https://highseas.hackclub.com"

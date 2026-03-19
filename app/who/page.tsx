@@ -1,12 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowLeft, Clock, Music, Code, User, Wifi, ShieldCheck } from 'lucide-react'
+import { Clock, Music, Code, User, Wifi, ShieldCheck } from 'lucide-react'
 import { useDiscordStatus } from './useDiscordStatus'
 import { TechStack } from './components/TechStack'
+import BreadcrumbNav from '../components/BreadcrumbNav'
 import bannerImage from '../../public/banner.png'
 
 type DiscordUser = {
@@ -225,10 +225,7 @@ export default function WhoPage() {
     <div className="min-h-screen bg-[#13111C] text-[#D2D2D4] relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <nav className="flex justify-between items-center mb-16">
-          <Link className="flex items-center space-x-2 text-[#DCB8B0] hover:text-[#D2D2D4] transition-colors" href="/">
-            <ArrowLeft className="h-5 w-5" />
-            <span className="font-mono">back to home</span>
-          </Link>
+          <BreadcrumbNav />
         </nav>
 
         <div className="mb-16 rounded-lg overflow-hidden">

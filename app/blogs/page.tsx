@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowLeft, ShieldAlert } from 'lucide-react'
+import BreadcrumbNav from '../components/BreadcrumbNav'
 
 
 export default function BlogsPage() {
@@ -10,10 +11,7 @@ export default function BlogsPage() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <nav className="flex items-center mb-16">
-          <Link className="flex items-center space-x-2 text-[#DCB8B0] hover:text-[#D2D2D4] transition-colors" href="/">
-            <ArrowLeft className="h-5 w-5" />
-            <span className="font-mono">back to home</span>
-          </Link>
+          <BreadcrumbNav />
         </nav>
 
         <section className="mx-auto max-w-1xl rounded-2xl border border-[#DCB8B0]/35 bg-[#1A1721]/92 p-8 sm:p-10 text-center shadow-[0_10px_30px_rgba(0,0,0,0.28)]">
@@ -25,7 +23,7 @@ export default function BlogsPage() {
           <h1 className="font-mono text-4xl sm:text-5xl font-bold text-[#DCB8B0] mb-3">401</h1>
           <h2 className="font-mono text-xl text-[#DCB8B0] mb-4">this area is being redeveloped.</h2>
           <p className="text-[#D2D2D4] leading-relaxed mb-8">
-            you can&apos;t see it right now but it will be made at someeeee point.
+            you can&apos;t see it right now, but it will be available soon.
           </p>
 
           <Link

@@ -1,13 +1,13 @@
 # HighSeas Portfolio
 
 > [!WARNING]
-> This is abandoned and will not recieve updates.
+> This project is no longer actively maintained.
 
-My site made with React & NextJS.
+Personal site built with React and Next.js.
 
 ## Features
 
-Github Project Tracker
+GitHub Project Tracker
 
 Discord Status Tracker
 
@@ -21,7 +21,7 @@ Work Page
 
 Education Page
 
-WhoAmI Page
+Whoami Page
 
 ## Author
 

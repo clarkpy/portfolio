@@ -5,10 +5,11 @@ import Link from "next/link"
 import Image from "next/image"
 import type { StaticImageData } from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowLeft, Briefcase, GraduationCap, ChevronDown, ChevronUp, X } from 'lucide-react'
+import { Briefcase, GraduationCap, ChevronDown, ChevronUp, X } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Tilt from 'react-parallax-tilt'
+import BreadcrumbNav from '../components/BreadcrumbNav'
 import minecrush from '../../public/minecrush.png'
 import akrylic from '../../public/akrylic.jpg'
 import feather from '../../public/feather.png'
@@ -228,10 +229,7 @@ export default function ExperiencePage() {
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <nav className="flex justify-between items-center mb-16">
-          <Link className="flex items-center space-x-2 text-[#DCB8B0] hover:text-[#D2D2D4] transition-colors" href="/">
-            <ArrowLeft className="h-5 w-5" />
-            <span className="font-mono">back to home</span>
-          </Link>
+          <BreadcrumbNav />
         </nav>
 
         <header className="space-y-4 max-w-3xl mx-auto text-center mb-16">

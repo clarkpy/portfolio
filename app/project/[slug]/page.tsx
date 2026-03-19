@@ -1,7 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { Github, ArrowLeft, Calendar, Clock } from 'lucide-react'
+import { Github, Calendar, Clock } from 'lucide-react'
+import BreadcrumbNav from '../../components/BreadcrumbNav'
 import taskify from '../../../public/taskify.png'
 import superstudy from '../../../public/superstudy.png'
 import bytestore from '../../../public/bytestore.png'
@@ -99,10 +100,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <div className="min-h-screen bg-[#13111C] text-[#D2D2D4] relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <nav className="flex justify-between items-center mb-16">
-          <Link className="flex items-center space-x-2 text-[#DCB8B0] hover:text-[#D2D2D4] transition-colors" href="/projects">
-            <ArrowLeft className="h-5 w-5" />
-            <span className="font-mono">back to projects</span>
-          </Link>
+          <BreadcrumbNav />
         </nav>
 
         <div>
