@@ -1,49 +1,40 @@
-'use client'
-
-import { useEffect, useRef } from 'react'
 import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowLeft } from 'lucide-react'
-import { blogs } from '../data/blogs'
-import BlogPreview from '../components/BlogPreview'
+import { ArrowLeft, ShieldAlert } from 'lucide-react'
 
 
 export default function BlogsPage() {
   return (
-    <div className="min-h-screen bg-[#13111C] text-[#D2D2D4] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        <nav className="flex justify-between items-center mb-16">
+    <div className="min-h-screen bg-[#13111C] text-[#D2D2D4] relative overflow-hidden">
+      <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#DCB8B0]/6 blur-3xl" />
+      <div className="absolute -bottom-20 -right-20 h-80 w-80 rounded-full bg-[#7f6ea1]/6 blur-3xl" />
+
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        <nav className="flex items-center mb-16">
           <Link className="flex items-center space-x-2 text-[#DCB8B0] hover:text-[#D2D2D4] transition-colors" href="/">
             <ArrowLeft className="h-5 w-5" />
             <span className="font-mono">back to home</span>
           </Link>
         </nav>
 
-        <header className="space-y-4 max-w-3xl mx-auto text-center mb-16">
-          <h1 className="text-4xl font-bold font-mono text-[#DCB8B0]">My Blog</h1>
-          <p className="text-[#D2D2D4] leading-relaxed">
-            My thoughts, ideas and actions. All for you to read!
-          </p>
-        </header>
-
-        <section className="mt-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogs.map((blog, index) => (
-              <motion.div
-                key={blog.id}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 20,
-                  delay: index * 0.1
-                }}
-              >
-                <BlogPreview blog={blog} />
-              </motion.div>
-            ))}
+        <section className="mx-auto max-w-1xl rounded-2xl border border-[#DCB8B0]/35 bg-[#1A1721]/92 p-8 sm:p-10 text-center shadow-[0_10px_30px_rgba(0,0,0,0.28)]">
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-[#DCB8B0]/35 bg-[#DCB8B0]/10">
+            <ShieldAlert className="h-6 w-6 text-[#DCB8B0]" />
           </div>
+
+          <p className="font-mono text-s uppercase tracking-[0.2em] text-[#DCB8B0] mb-2">blogs</p>
+          <h1 className="font-mono text-4xl sm:text-5xl font-bold text-[#DCB8B0] mb-3">401</h1>
+          <h2 className="font-mono text-xl text-[#DCB8B0] mb-4">this area is being redeveloped.</h2>
+          <p className="text-[#D2D2D4] leading-relaxed mb-8">
+            you can&apos;t see it right now but it will be made at someeeee point.
+          </p>
+
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-full border border-[#DCB8B0] px-5 py-2.5 text-sm font-mono text-[#DCB8B0] hover:bg-[#DCB8B0] hover:text-[#13111C] transition-colors"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            return home
+          </Link>
         </section>
       </div>
     </div>

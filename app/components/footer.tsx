@@ -22,7 +22,7 @@ export default function Footer() {
               href="https://github.com/clarkpy"
               className="underline underline-offset-4 text-[#DCB8B0] hover:text-[#D2D2D4] transition-colors font-mono text-sm"
             >
-              Snowy
+              aj
             </a>
           </p>
         </div>

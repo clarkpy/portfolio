@@ -6,32 +6,19 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Github, Telescope, ArrowLeft } from 'lucide-react'
 import bannerImage from '../../public/banner.png'
-import taskify from '../../public/taskify.png'
-import superstudy from '../../public/superstudy.png'
 import artifacts from '../../public/artifacts.png'
 import portfolio from '../../public/portfolio.png'
-import landing from '../../public/landing.png'
-import tors from '../../public/tors.png'
-import weathero from '../../public/weathero.png'
-import moody from '../../public/moody.png'
+import lovac from '../../public/lovac.png'
 
 
 const projects = [
   {
-    title: "Taskify",
-    description: "A simple task manager built with JavaScript and CSS.",
-    image: taskify,
-    tags: ["Javascript", "CSS", "HTML", "Docker"],
-    sourceUrl: "https://github.com/clarkpy/taskify",
-    visitUrl: "https://taskify.snowyjs.lol"
-  },
-  {
-    title: "SuperStudy",
-    description: "A complex and reactive study system for students",
-    image: superstudy,
-    tags: ["React", "TailwindCSS", "Kotlin"],
-    sourceUrl: "https://github.com/clarkpy/SuperStudy",
-    visitUrl: "https://superstudy.snowy.codes"
+    title: "Lovac",
+    description: "A ticket based support system integrated with Discord OAuth and cross compatability.",
+    image: lovac,
+    tags: ["React", "Typescript", "Docker"],
+    sourceUrl: "https://github.com/clarkpy/lovac-backend",
+    visitUrl: "https://github.com/clarkpy/lovac-frontend"
   },
   {
     title: "Artifacts",
@@ -48,38 +35,6 @@ const projects = [
     tags: ["React", "NextJS", "TypeScript"],
     sourceUrl: "https://github.com/clarkpy/portfolio",
     visitUrl: "#"
-  },
-  {
-    title: "Weathero",
-    description: "A weather app that uses the free Weather API",
-    image: weathero,
-    tags: ["React", "NextJS", "TypeScript"],
-    sourceUrl: "https://github.com/clarkpy/Weathero",
-    visitUrl: "https://weathero.snowy.codes"
-  },
-  {
-    title: "Moody",
-    description: "A mood tracking app that I used to learn about ShadCN graphs",
-    image: moody,
-    tags: ["React", "NextJS", "TypeScript"],
-    sourceUrl: "https://github.com/clarkpy/Moody",
-    visitUrl: "https://moody.snowy.codes"
-  },
-  {
-    title: "Landing",
-    description: "A landing page template for your next project",
-    image: landing,
-    tags: ["React", "NextJS", "TypeScript"],
-    sourceUrl: "https://github.com/clarkpy/landing",
-    visitUrl: "https://vandal.snowy.codes"
-  },
-  {
-    title: "Tors",
-    description: "A simple and secure way to managet tasks via the command line",
-    image: tors,
-    tags: ["Rust", "Javascript", "TypeScript"],
-    sourceUrl: "https://github.com/clarkpy/Tors-CLI",
-    visitUrl: "https://tors.snowy.codes"
   }
 ]
 
@@ -190,13 +145,13 @@ export default function ProjectsPage() {
         <header className="space-y-4 max-w-3xl mx-auto text-center mt-16">
           <h1 className="text-4xl font-bold font-mono text-[#DCB8B0]"></h1>
             <p className="text-[#D2D2D4] leading-relaxed">
-            Nothing more for now.. All Projects are created for HighSeas
-            <span className="mx-1"></span>
+            not much for now. open source projects were made for high seas
+            <span className="mx-0.5"></span>
             <Link 
               href="https://highseas.hackclub.com"
               className="text-[#DCB8B0] hover:text-[#D2D2D4] transition-colors"
             >
-              Learn More
+              learn more
             </Link>
             </p>
         </header>

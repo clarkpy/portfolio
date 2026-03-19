@@ -1,9 +1,6 @@
-'use client'
-
-import { useEffect, useState, ReactNode } from 'react'
 import Link from "next/link"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { notFound } from "next/navigation"
 import { Github, ArrowLeft, Calendar, Clock } from 'lucide-react'
 import taskify from '../../../public/taskify.png'
 import superstudy from '../../../public/superstudy.png'
@@ -85,23 +82,16 @@ const projects = [
 ]
 
 interface ProjectPageProps {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-  const [project, setProject] = useState<any>(null)
-
-  useEffect(() => {
-    params.then(({ slug }) => {
-      const foundProject = projects.find(p => p.title.toLowerCase() === slug.toLowerCase())
-      setProject(foundProject || null)
-    })
-  }, [params])
+  const project = projects.find((p) => p.title.toLowerCase() === params.slug.toLowerCase())
 
   if (!project) {
-    return <div>Project not found</div>
+    notFound()
   }
 
   return (
@@ -114,11 +104,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </Link>
         </nav>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        >
+        <div>
           <div className="mb-8 rounded-lg overflow-hidden">
             <Image
               src={project.image}
@@ -135,9 +121,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             {project.tags.map((tag: string, index: number) => (
               <span
                 key={index}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1E1E1E] border border-[#333333] rounded-full text-sm font-mono text-[#D2D2D4]"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-mono text-[#D2D2D4] border border-[#DCB8B0]/35 bg-[#DCB8B0]/7"
               >
-                <span className="w-2 h-2 rounded-full bg-[#DCB8B0]" />
+                <span className="w-2 h-2 rounded-full bg-[#DCB8B0]/90" />
                 {tag}
               </span>
             ))}
@@ -181,7 +167,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               Visit Project
             </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   )

@@ -1,69 +1,63 @@
-import { FaJava } from "react-icons/fa";
-import { 
-    SiKotlin, 
-    SiReact, 
-    SiJavascript, 
-    SiNextdotjs, 
-    SiTypescript, 
-    SiDeno, 
-    SiPython, 
-    SiTailwindcss 
-  } from 'react-icons/si'
-  
-  const techStack = [
-    { name: 'Kotlin', Icon: SiKotlin, color: '#E8DBF1' },
-    { name: 'Java', Icon: FaJava, color: '#FFF4D3' },
-    { name: 'React', Icon: SiReact, color: '#E3F2F9' },
-    { name: 'Javascript', Icon: SiJavascript, color: '#FFF4D3' },
-    { name: 'Next.js', Icon: SiNextdotjs, color: '#E8E8E8' },
-    { name: 'TypeScript', Icon: SiTypescript, color: '#E3F2F9' },
-    { name: 'Deno', Icon: SiDeno, color: '#F5E6D3' },
-    { name: 'Python', Icon: SiPython, color: '#E3F9F2' },
-    { name: 'Tailwind CSS', Icon: SiTailwindcss, color: '#E3F2F9' },
-  ]
-  
-  interface TechStackProps {
-    singleTech?: string;
-  }
+import { FaJava } from "react-icons/fa"
+import {
+  SiKotlin,
+  SiReact,
+  SiJavascript,
+  SiNextdotjs,
+  SiTypescript,
+  SiDeno,
+  SiPython,
+  SiTailwindcss
+} from 'react-icons/si'
+import { motion } from "framer-motion"
 
-  export function TechStack({ singleTech }: TechStackProps) {
-    const filteredTech = singleTech
-      ? techStack.find(({ name }) => name === singleTech)
-      : null
-  
-    return (
-      <div className="mt-10">
-        <h2 className="text-3xl font-bold text-[#DCB8B0] mb-6">Tech Stack</h2>
-        <div className="flex flex-wrap gap-2">
-          {filteredTech ? (
-            <span
-              key={filteredTech.name}
-              className="px-4 py-2.5 text-[#2C2F33] rounded-lg text-lg font-medium border-2 border-[#2C2F33]/10 hover:border-[#2C2F33]/20 transition-all duration-200 cursor-default shadow-sm transform hover:translate-y-[-2px] hover:shadow-md flex items-center space-x-2"
-              style={{
-                backgroundColor: filteredTech.color,
-                boxShadow: '2px 2px 0 rgba(44, 47, 51, 0.1)',
-              }}
-            >
-              <filteredTech.Icon className="w-5 h-5" />
-              <span className="font-roboto">{filteredTech.name}</span>
-            </span>
-          ) : (
-            techStack.map(({ name, Icon, color }) => (
-              <span
-                key={name}
-                className="px-4 py-2.5 text-[#2C2F33] rounded-lg text-lg font-medium border-2 border-[#2C2F33]/10 hover:border-[#2C2F33]/20 transition-all duration-200 cursor-default shadow-sm transform hover:translate-y-[-2px] hover:shadow-md flex items-center space-x-2"
-                style={{
-                  backgroundColor: color,
-                  boxShadow: '2px 2px 0 rgba(44, 47, 51, 0.1)',
-                }}
-              >
-                <Icon className="w-5 h-5" />
-                <span className="font-roboto">{name}</span>
-              </span>
-            ))
-          )}
-        </div>
+const techStack = [
+  { name: 'Kotlin', Icon: SiKotlin },
+  { name: 'Java', Icon: FaJava },
+  { name: 'React', Icon: SiReact },
+  { name: 'Javascript', Icon: SiJavascript },
+  { name: 'Next.js', Icon: SiNextdotjs },
+  { name: 'TypeScript', Icon: SiTypescript },
+  { name: 'Deno', Icon: SiDeno },
+  { name: 'Python', Icon: SiPython },
+  { name: 'Tailwind CSS', Icon: SiTailwindcss }
+]
+
+interface TechStackProps {
+  singleTech?: string
+}
+
+export function TechStack({ singleTech }: TechStackProps) {
+  const items = singleTech
+    ? techStack.filter(({ name }) => name === singleTech)
+    : techStack
+
+  return (
+    <div className="relative overflow-hidden">
+      <motion.div
+        className="pointer-events-none absolute -left-24 -top-20 h-40 w-40 rounded-full bg-[#DCB8B0]/8 blur-3xl"
+        animate={{ opacity: [0.18, 0.32, 0.18], scale: [1, 1.08, 1] }}
+        transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <h2 className="text-2xl font-bold font-mono text-[#DCB8B0] mb-5">Tech Stack</h2>
+      <div className="flex flex-wrap gap-2">
+        {items.map(({ name, Icon }, index) => (
+          <motion.span
+            key={name}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: [0, -2, 0] }}
+            transition={{
+              opacity: { duration: 0.35, delay: index * 0.06 },
+              y: { duration: 2.7 + (index % 3) * 0.35, repeat: Infinity, ease: "easeInOut", delay: index * 0.08 }
+            }}
+            whileHover={{ y: -4, scale: 1.045 }}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-mono text-[#D2D2D4] border border-[#DCB8B0]/35 bg-[#DCB8B0]/7"
+          >
+            <Icon className="w-4 h-4 text-[#DCB8B0]/90" />
+            {name}
+          </motion.span>
+        ))}
       </div>
-    )
-  }
-  
+    </div>
+  )
+}
