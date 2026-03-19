@@ -82,13 +82,14 @@ const projects = [
 ]
 
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = projects.find((p) => p.title.toLowerCase() === params.slug.toLowerCase())
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params
+  const project = projects.find((p) => p.title.toLowerCase() === slug.toLowerCase())
 
   if (!project) {
     notFound()
